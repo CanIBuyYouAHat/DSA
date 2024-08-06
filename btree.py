@@ -4,7 +4,6 @@ from typing import List
 import math
 
 # Node Class.
-# You may make minor modifications.
 class Node():
     def  __init__(self,
                   keys     : List[int]  = None,
@@ -16,7 +15,6 @@ class Node():
         self.children = children
         self.parent   = parent
 
-# DO NOT MODIFY THIS CLASS DEFINITION.
 class Btree():
     def  __init__(self,
                   m    : int  = None,
@@ -24,7 +22,6 @@ class Btree():
         self.m    = m
         self.root = root
 
-    # DO NOT MODIFY THIS CLASS METHOD.
     def dump(self) -> str:
         def _to_dict(node) -> dict:
             # print(f'keys: {node.keys}, values: {node.values}, children: {len(node.children)}')
@@ -84,13 +81,10 @@ class Btree():
                         overfull.parent.parent = self.split(overfull.parent)
         return overfull.parent
 
-    # TODO: Append values, check length of keys after rotating
     def rotateIns(self, overfull: Node) -> bool:
         if overfull == self.root:
             return False
         else:
-            # print(f'here {overfull.parent.keys} {overfull.keys}')
-            
             siblings = overfull.parent.children
             childIndex = siblings.index(overfull)
       
